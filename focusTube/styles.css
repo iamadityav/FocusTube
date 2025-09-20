@@ -1,0 +1,288 @@
+/* 
+ * FocusTube - YouTube Focus Mode Styles
+ * Applied to YouTube pages when Focus Mode is active
+ */
+
+/* === CORE HIDING CLASSES === */
+.focustube-hidden {
+    display: none !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+
+/* Smooth fade out before hiding */
+.focustube-fade-out {
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* === LAYOUT IMPROVEMENTS === */
+
+/* Better video player focus when sidebar is hidden */
+.focustube-active ytd-watch-flexy[flexy] #primary {
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Center the video player better */
+.focustube-active ytd-watch-flexy[flexy] #primary ytd-video-primary-info-renderer,
+.focustube-active ytd-watch-flexy[flexy] #primary #player-container {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+}
+
+/* Improve video player size when sidebar hidden */
+.focustube-active #player-container {
+    max-width: none !important;
+}
+
+/* === SMOOTH TRANSITIONS === */
+
+/* Smooth transitions for YouTube elements */
+#secondary,
+#comments,
+ytd-comments-section-renderer,
+ytd-watch-next-secondary-results-renderer {
+    transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease !important;
+}
+
+/* === COMMENTS SECTION === */
+
+/* Clean comments hiding */
+.focustube-hidden#comments,
+.focustube-hidden ytd-comments {
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* === SIDEBAR & RECOMMENDATIONS === */
+
+/* Clean sidebar hiding */
+.focustube-hidden#secondary {
+    width: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* === END SCREEN & OVERLAYS === */
+
+/* Video end screen suggestions */
+.focustube-hidden .ytp-endscreen-content {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+/* Card teasers and info cards */
+.focustube-hidden .ytp-cards-teaser,
+.focustube-hidden .ytp-ce-element {
+    display: none !important;
+}
+
+/* === SHORTS SECTION === */
+
+/* Homepage Shorts shelf */
+.focustube-hidden ytd-rich-section-renderer[is-shorts],
+.focustube-hidden ytd-reel-shelf-renderer {
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+}
+
+/* === FOCUS INDICATOR === */
+
+/* Focus mode indicator styling */
+.focustube-indicator {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 25px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    z-index: 10000 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    animation: focusSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    cursor: default !important;
+    user-select: none !important;
+}
+
+/* Focus indicator animations */
+@keyframes focusSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Focus indicator hover effect */
+.focustube-indicator:hover {
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* === RESPONSIVE IMPROVEMENTS === */
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .focustube-indicator {
+        top: 10px !important;
+        right: 10px !important;
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+    }
+    
+    /* Better mobile layout when sidebar hidden */
+    .focustube-active ytd-watch-flexy[flexy] #primary {
+        padding: 0 12px !important;
+    }
+}
+
+/* === THEATER MODE COMPATIBILITY === */
+
+/* Theater mode improvements */
+.focustube-active ytd-watch-flexy[theater] #primary {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* === DARK MODE COMPATIBILITY === */
+
+/* Dark theme adjustments */
+[dark] .focustube-indicator {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+
+/* Maintain focus outline for keyboard navigation */
+.focustube-active *:focus {
+    outline: 2px solid #4285f4 !important;
+    outline-offset: 2px !important;
+}
+
+/* Screen reader support */
+.focustube-hidden[aria-hidden="false"] {
+    display: block !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    left: -10000px !important;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* Use transform instead of changing layout properties */
+.focustube-hidden {
+    transform: translateX(-100%) !important;
+    will-change: transform, opacity !important;
+}
+
+/* GPU acceleration for smooth animations */
+#secondary,
+#comments,
+.ytp-endscreen-content {
+    will-change: transform, opacity !important;
+    backface-visibility: hidden !important;
+}
+
+/* === CLEAN LAYOUT FIXES === */
+
+/* Fix layout when comments are hidden */
+.focustube-active ytd-watch-flexy[flexy] #primary.ytd-watch-flexy {
+    padding-bottom: 0 !important;
+}
+
+/* Clean up extra spacing */
+.focustube-hidden + * {
+    margin-top: 0 !important;
+}
+
+/* === STUDY MODE ENHANCEMENTS === */
+
+/* Future: Ultra clean study mode */
+.focustube-study-mode * {
+    transition: all 0.3s ease !important;
+}
+
+.focustube-study-mode .focustube-hidden {
+    opacity: 0 !important;
+    transform: scale(0.95) !important;
+}
+
+/* === ANIMATION PREFERENCES === */
+
+/* Respect user's animation preferences */
+@media (prefers-reduced-motion: reduce) {
+    .focustube-hidden,
+    #secondary,
+    #comments,
+    .focustube-indicator {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .focustube-indicator {
+        transform: none !important;
+    }
+}
+
+/* === DEBUGGING HELPERS === */
+
+/* Debug mode (uncomment to see hidden elements with red border) */
+/*
+.focustube-hidden {
+    border: 2px solid red !important;
+    opacity: 0.1 !important;
+    display: block !important;
+}
+*/
+
+/* === BRAND CONSISTENCY === */
+
+/* Use YouTube's color scheme for integration */
+.focustube-indicator {
+    --youtube-red: #ff0000;
+    --youtube-dark: #0f0f0f;
+    --youtube-light: #f9f9f9;
+}
+
+/* Light theme indicator */
+html:not([dark]) .focustube-indicator {
+    background: linear-gradient(135deg, var(--youtube-red) 0%, #cc0000 100%) !important;
+    color: white !important;
+}
+
+/* === FINAL POLISH === */
+
+/* Smooth page transitions */
+.focustube-active {
+    transition: all 0.3s ease !important;
+}
+
+/* Clean focus states */
+.focustube-active button:focus,
+.focustube-active a:focus {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.5) !important;
+}
+
+/* Ensure text remains readable */
+.focustube-active {
+    font-smooth: always !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}

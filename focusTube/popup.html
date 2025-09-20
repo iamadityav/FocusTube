@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusTube</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="icons/icon16.png" alt="FocusTube" class="logo-icon">
+                <h1>FocusTube</h1>
+            </div>
+        </div>
+
+        <!-- Main Toggle -->
+        <div class="main-control">
+            <div class="toggle-section">
+                <label class="toggle-label">
+                    <span class="toggle-text">Focus Mode</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="focusModeToggle">
+                        <span class="slider"></span>
+                    </div>
+                </label>
+            </div>
+            <p class="status-text" id="statusText">Focus Mode is OFF</p>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="settings-section">
+            <h3>Hide Elements</h3>
+            
+            <div class="setting-item">
+                <label class="setting-label">
+                    <input type="checkbox" id="hideComments" checked>
+                    <span class="checkmark"></span>
+                    <span class="setting-text">Comments</span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label class="setting-label">
+                    <input type="checkbox" id="hideSidebar" checked>
+                    <span class="checkmark"></span>
+                    <span class="setting-text">Sidebar & Recommendations</span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label class="setting-label">
+                    <input type="checkbox" id="hideEndScreen" checked>
+                    <span class="checkmark"></span>
+                    <span class="setting-text">End Screen Suggestions</span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label class="setting-label">
+                    <input type="checkbox" id="hideShorts">
+                    <span class="checkmark"></span>
+                    <span class="setting-text">Shorts (Homepage)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Focus better, learn more 🎯</p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
